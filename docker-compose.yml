@@ -11,6 +11,7 @@ services:
     environment: 
       HADOOP_MASTER: hadoop-master
       SLAVES: "hadoop-master,hadoop-slave1,hadoop-slave2"
+      CLUSTER_NAME: local
     networks:
       - docker-local
 
@@ -23,6 +24,7 @@ services:
     environment: 
       HADOOP_MASTER: hadoop-master
       SLAVES: "hadoop-master,hadoop-slave1,hadoop-slave2"
+      CLUSTER_NAME: local
     networks:
       - docker-local
 
@@ -35,6 +37,7 @@ services:
     environment: 
       HADOOP_MASTER: hadoop-master
       SLAVES: "hadoop-master,hadoop-slave1,hadoop-slave2"
+      CLUSTER_NAME: local
     networks:
       - docker-local
 

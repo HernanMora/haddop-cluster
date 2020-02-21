@@ -6,7 +6,7 @@ USER root
 RUN apt-get update && apt-get install -y openssh-server openjdk-8-jdk wget
 
 ENV HADOOP_VERSION 2.9.1
-
+ENV CLUSTER_NAME local
 # Set environment variable
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 
 ENV PATH $PATH:$JAVA_HOME/bin
