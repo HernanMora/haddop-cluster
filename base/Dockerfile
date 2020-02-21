@@ -27,13 +27,14 @@ ADD config/ssh_config /root/.ssh/config
 RUN chmod 600 /root/.ssh/config
 RUN chown root:root /root/.ssh/config
 
-RUN mkdir -p ~/hdfs/namenode; \ 
-    mkdir -p ~/hdfs/datanode; \
+RUN mkdir -p /data/namenode; \ 
+    mkdir -p /data/datanode; \
     mkdir $HADOOP_HOME/logs
+
+VOLUME [ "/data" ]
 
 ADD etc/* $HADOOP_HOME/etc/hadoop/
 
-#ADD config/ssh_config /root/.ssh/config
 ADD config/bootstrap.sh /etc/bootstrap.sh
 ADD config/configure.sh /etc/configure.sh
 
@@ -48,7 +49,7 @@ EXPOSE 8088 50070
 
 WORKDIR $HADOOP_HOME
 
-# Format namenode
-RUN bin/hdfs namenode -format
+
+#RUN bin/hdfs namenode -format
 
 CMD ["/etc/bootstrap.sh"]
