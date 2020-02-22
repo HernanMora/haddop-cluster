@@ -49,7 +49,4 @@ EXPOSE 8088 50070
 
 WORKDIR $HADOOP_HOME
 
-
-#RUN bin/hdfs namenode -format
-
 CMD ["/etc/bootstrap.sh"]
