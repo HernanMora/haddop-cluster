@@ -3,7 +3,7 @@ version: "3.3"
 services:
 
   hadoop-master:
-    image: local/hadoop-master:2.9.1
+    image: local/hadoop-master:2.9.2
     hostname: hadoop-master
     container_name: hadoop-master
     volumes: 
@@ -16,7 +16,7 @@ services:
       - docker-local
 
   hadoop-slave1:
-    image: local/hadoop-base:2.9.1
+    image: local/hadoop-base:2.9.2
     hostname: hadoop-slave1
     container_name: hadoop-slave1
     volumes: 
@@ -29,7 +29,7 @@ services:
       - docker-local
 
   hadoop-slave2:
-    image: local/hadoop-base:2.9.1
+    image: local/hadoop-base:2.9.2
     hostname: hadoop-slave2
     container_name: hadoop-slave2
     volumes: 

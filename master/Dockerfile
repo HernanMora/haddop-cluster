@@ -1,4 +1,4 @@
-FROM local/hadoop-base:2.9.1
+FROM local/hadoop-base:2.9.2
 
 ADD config/bootstrap.sh /etc/bootstrap.sh
 

@@ -5,7 +5,7 @@ USER root
 # Install openssh-server, openjdk and wget
 RUN apt-get update && apt-get install -y openssh-server openjdk-8-jdk wget
 
-ENV HADOOP_VERSION 2.9.1
+ENV HADOOP_VERSION 2.9.2
 ENV CLUSTER_NAME local
 # Set environment variable
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 
@@ -20,8 +20,8 @@ RUN wget https://archive.apache.org/dist/hadoop/common/hadoop-$HADOOP_VERSION/ha
     mv hadoop-$HADOOP_VERSION $HADOOP_HOME ; \
     rm hadoop-$HADOOP_VERSION.tar.gz
 
-RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' ; \
-    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+RUN ssh-keygen -t rsa -f $HOME/.ssh/id_rsa -P "" ; \
+    cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
 
 ADD config/ssh_config /root/.ssh/config
 RUN chmod 600 /root/.ssh/config
