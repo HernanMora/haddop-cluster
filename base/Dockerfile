@@ -3,7 +3,8 @@ FROM ubuntu:16.04
 USER root
 
 # Install openssh-server, openjdk and wget
-RUN apt-get update && apt-get install -y openssh-server openjdk-8-jdk wget
+RUN apt-get update && apt-get install -y openssh-server openjdk-8-jdk wget vim \
+    libsnappy1v5 libsnappy-dev iputils-ping telnetd net-tools whois
 
 ENV HADOOP_VERSION 2.9.2
 ENV CLUSTER_NAME local
@@ -41,7 +42,9 @@ ADD config/configure.sh /etc/configure.sh
 RUN chown root:root /etc/bootstrap.sh /etc/configure.sh ; \
     chmod 700 /etc/bootstrap.sh ; \
     chmod 700 /etc/configure.sh    
-    
+
+RUN ulimit -n 8192
+
 RUN chmod +x $HADOOP_HOME/sbin/start-dfs.sh ; \
     chmod +x $HADOOP_HOME/sbin/start-yarn.sh 
 
