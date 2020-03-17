@@ -3,7 +3,7 @@ version: "3.3"
 services:
 
   hadoop-master:
-    image: local/hadoop-master:2.9.2
+    image: local/hadoop-base:2.9.2
     hostname: hadoop-master
     container_name: hadoop-master
     volumes: 
@@ -12,6 +12,7 @@ services:
       HADOOP_MASTER: hadoop-master
       SLAVES: "hadoop-master,hadoop-slave1,hadoop-slave2"
       CLUSTER_NAME: local
+      MASTER: 'true'
     networks:
       - docker-local
 
@@ -23,8 +24,6 @@ services:
       - ./data/node2:/data
     environment: 
       HADOOP_MASTER: hadoop-master
-      SLAVES: "hadoop-master,hadoop-slave1,hadoop-slave2"
-      CLUSTER_NAME: local
     networks:
       - docker-local
 
@@ -36,8 +35,6 @@ services:
       - ./data/node3:/data
     environment: 
       HADOOP_MASTER: hadoop-master
-      SLAVES: "hadoop-master,hadoop-slave1,hadoop-slave2"
-      CLUSTER_NAME: local
     networks:
       - docker-local
 

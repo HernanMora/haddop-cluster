@@ -1,5 +1,7 @@
 FROM ubuntu:16.04
 
+ENV MASTER false
+
 USER root
 
 # Install openssh-server, openjdk and wget
@@ -14,6 +16,7 @@ ENV PATH $PATH:$JAVA_HOME/bin
 
 ENV HADOOP_HOME /usr/local/hadoop
 ENV PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+ENV LD_LIBRARY_PATH $HADOOP_HOME/lib/native
 
 # Install hadoop
 RUN wget https://archive.apache.org/dist/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz ; \
