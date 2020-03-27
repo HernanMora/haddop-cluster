@@ -31,6 +31,8 @@ ADD config/ssh_config /root/.ssh/config
 RUN chmod 600 /root/.ssh/config
 RUN chown root:root /root/.ssh/config
 
+RUN groupadd supergroup
+
 RUN mkdir -p /data/namenode; \ 
     mkdir -p /data/datanode; \
     mkdir $HADOOP_HOME/logs
